@@ -17,12 +17,18 @@ public class PlayerCombat : MonoBehaviour
 
     public int damage = 10;
 
+    public float attackCooldown = 2;
+
+    bool cooling;
+
+    private float intAttackCooldown;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        intAttackCooldown = attackCooldown;
     }
 
     // Update is called once per frame
@@ -38,6 +44,10 @@ public class PlayerCombat : MonoBehaviour
         {
             Attack();
         }
+        else if (cooling)
+        {
+            Cooldown();
+        }
     }
 
     void Attack()
@@ -52,6 +62,7 @@ public class PlayerCombat : MonoBehaviour
         {
             Debug.Log("We hit " + enemy.name);
             enemy.GetComponent<EnemyHealth>().getDamage(damage);
+            TriggerCooling();
         }
     }
 
@@ -61,6 +72,22 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    void TriggerCooling()
+    {
+        cooling = true;
+    }
+
+    void Cooldown()
+    {
+        attackCooldown -= Time.deltaTime;
+
+        if(attackCooldown <= 0 && cooling)
+        {
+            cooling = false;
+            attackCooldown = intAttackCooldown;
+        }
     }
 
 }

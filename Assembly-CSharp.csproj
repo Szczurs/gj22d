@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Mechanics\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\Gameplay\PlayerEnemyCollision.cs" />
      <Compile Include="Assets\Scripts\Core\HeapQueue.cs" />
      <Compile Include="Assets\Scripts\View\ParallaxLayer.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\View\AnimatedTile.cs" />
      <Compile Include="Assets\Scripts\Mechanics\TokenInstance.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\UI\MainUIController.cs" />
@@ -86,9 +88,10 @@
      <Compile Include="Assets\Scripts\UI\MetaGameController.cs" />
      <Compile Include="Assets\Scripts\Core\Simulation.InstanceRegister.cs" />
      <Compile Include="Assets\Scripts\Gameplay\HealthIsZero.cs" />
-     <Compile Include="Assets\Scripts\Player\Dash.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerCombat.cs" />
-     <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerController2D.cs" />
+     <Compile Include="Assets\Spriter2UnityDX\Runtime\TextureController.cs" />
+     <Compile Include="Assets\Spriter2UnityDX\Runtime\SortingOrderUpdater.cs" />
+     <Compile Include="Assets\Spriter2UnityDX\Runtime\EntityRenderer.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

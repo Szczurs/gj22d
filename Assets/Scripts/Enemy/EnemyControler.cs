@@ -10,6 +10,8 @@ public class EnemyControler : MonoBehaviour
 
     public int damage = 10;
 
+    public float cooldown = 2;
+
     // Start is called before the first frame update
     void Start()
     {
