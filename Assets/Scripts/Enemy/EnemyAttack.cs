@@ -132,7 +132,7 @@ public class EnemyAttack : MonoBehaviour
         timer = intTimer; //Reset timer when player enter attack range 
         attackMode = true;//To check if enemy can still attack or not
         //log attack
-        Debug.Log("Attack");
+        Debug.Log("AttackPlayer");
         TriggerCooling();
         //deal damage
         target.GetComponent<PlayerHealth>().getDamage(damage);
