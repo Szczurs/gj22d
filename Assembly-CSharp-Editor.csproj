@@ -36,14 +36,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\PatrolPathEditor.cs" />
-     <Compile Include="Assets\Spriter2UnityDX\Editor\PrefabBuilder.cs" />
-     <Compile Include="Assets\Spriter2UnityDX\Editor\ScmlImportOptions.cs" />
-     <Compile Include="Assets\Spriter2UnityDX\Editor\CustomEditors.cs" />
      <Compile Include="Assets\Spriter2UnityDX\Editor\AnimationBuilder.cs" />
-     <Compile Include="Assets\Spriter2UnityDX\Editor\ScmlPostProcessor.cs" />
      <Compile Include="Assets\Spriter2UnityDX\Editor\ScmlSupport.cs" />
      <Compile Include="Assets\Spriter2UnityDX\Editor\S2USettings.cs" />
+     <Compile Include="Assets\Spriter2UnityDX\Editor\CustomEditors.cs" />
+     <Compile Include="Assets\Spriter2UnityDX\Editor\ScmlPostProcessor.cs" />
+     <Compile Include="Assets\Editor\PatrolPathEditor.cs" />
+     <Compile Include="Assets\Spriter2UnityDX\Editor\ScmlImportOptions.cs" />
+     <Compile Include="Assets\Spriter2UnityDX\Editor\PrefabBuilder.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.31f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
