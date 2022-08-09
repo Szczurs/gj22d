@@ -24,6 +24,9 @@ public class EnemyAttack : MonoBehaviour
 
     private GameObject target;
 
+    [SerializeField]
+    private Animator animator;
+
     private float distance; //Store the distance b/w enemy and player
 
     private bool attackMode;
@@ -36,6 +39,7 @@ public class EnemyAttack : MonoBehaviour
 
 
     #endregion
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -133,22 +137,23 @@ public class EnemyAttack : MonoBehaviour
         attackMode = true;//To check if enemy can still attack or not
         //log attack
         Debug.Log("AttackPlayer");
+        animator.SetBool("Attacking",true);
         TriggerCooling();
         //deal damage
         target.GetComponent<PlayerHealth>().getDamage(damage);
 
-        /* //anim section
+        //anim section
 
-        anim.SetBool("canWalk",false);
-        anim.SetBool("Attack",true);
-        */
+        //animator.SetBool("Walk",false);
+        //animator.SetBool("Attack",true);
+        
     }
 
     void StopAttack()
     {
         cooling = false;
         attackMode = false;
-        //anim.SetBool("Attack",false);
+        animator.SetBool("Attacking",false);
 
     }
 

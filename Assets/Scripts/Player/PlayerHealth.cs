@@ -22,6 +22,13 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+    private void FixedUpdate() {
+        if(dead)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void getDamage(int damage)
     {
         health = health - damage;

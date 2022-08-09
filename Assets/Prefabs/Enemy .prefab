@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.23358, y: 0.23358, z: 0.11679}
   m_Children: []
   m_Father: {fileID: 8177043670485664011}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8177043669384399205
 MeshFilter:
@@ -208,7 +208,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 0.79
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -355,8 +355,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8177043669384399208}
   - {fileID: 2754598501785235806}
+  - {fileID: 8177043669384399208}
   m_Father: {fileID: 8177043670035986524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,7 +467,7 @@ PrefabInstance:
     - target: {fileID: 6287303645567694132, guid: 17d1ad7940e983444bb0f4cf7adfb517,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6287303645567694132, guid: 17d1ad7940e983444bb0f4cf7adfb517,
         type: 3}
