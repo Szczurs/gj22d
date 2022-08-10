@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TutorialRequirement
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX

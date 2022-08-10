@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8177043669384399209}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 8177043670035986520}
   - component: {fileID: 8177043670035986519}
   - component: {fileID: 8177043670035986518}
+  - component: {fileID: 8431632710935963102}
   m_Layer: 7
   m_Name: 'Enemy '
   m_TagString: Enemy
@@ -255,6 +256,7 @@ MonoBehaviour:
   timer: 2
   damage: 10
   aiPath: {fileID: 8177043670035986523}
+  animator: {fileID: 3046100963274921727}
 --- !u!61 &8177043670035986519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -295,6 +297,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
+  timeValue: 100
+--- !u!114 &8431632710935963102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177043670035986526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ffb3565b93327419994d17ebedecd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8177043670429650051
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +604,12 @@ PrefabInstance:
 --- !u!4 &2754598501785235806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6287303645567694132, guid: 17d1ad7940e983444bb0f4cf7adfb517,
+    type: 3}
+  m_PrefabInstance: {fileID: 8177043668548437098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3046100963274921727 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6575076559321158293, guid: 17d1ad7940e983444bb0f4cf7adfb517,
     type: 3}
   m_PrefabInstance: {fileID: 8177043668548437098}
   m_PrefabAsset: {fileID: 0}

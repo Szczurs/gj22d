@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour
 
     public int timeValue = 100;
 
+    [SerializeField] EnemySpawner spawner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
         {
             //kill yourself
             Destroy(gameObject);
+            //spawner.GetComponent<EnemySpawner>().enemies.RemoveAt();
         }
     }
 

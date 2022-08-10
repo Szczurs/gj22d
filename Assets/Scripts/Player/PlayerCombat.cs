@@ -17,11 +17,11 @@ public class PlayerCombat : MonoBehaviour
 
     public int damage = 10;
 
-    public int timeDamage = 10;
+    public int timeDamage = 1;
 
     public float attackCooldown = 2;
 
-    public float timeAttackCooldown = 2;
+    public float timeAttackCooldown = 0.5f;
 
     bool cooling;
 
@@ -31,7 +31,7 @@ public class PlayerCombat : MonoBehaviour
     private Transform timeBulletPrefab;
 
     [SerializeField]
-    private GameObject timeBulletSpawnPosition;
+    private Transform timeBulletSpawnPosition;
 
     private float intAttackCooldown;
     private float intTimeAttackCooldown;
@@ -62,7 +62,7 @@ public class PlayerCombat : MonoBehaviour
         {
             Attack();
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) && timeAttackCooling == false)
         {
             TimeAttack();
         }
@@ -70,9 +70,14 @@ public class PlayerCombat : MonoBehaviour
         {
             Cooldown();
         }
+        else if(timeAttackCooling)
+        {
+            TimeAttackCooldown();
+        }
     }
     void TimeAttack()
     {
+
         //Play an attack animation
         //animator.SetTrigger("Attack");
         //Detect enemies in range of attack
@@ -88,9 +93,8 @@ public class PlayerCombat : MonoBehaviour
             TriggerTimeAttackCooling();
         }
         */
-        Transform bulletTransform = Instantiate(timeBulletPrefab, timeBulletSpawnPosition.transform.position, Quaternion.identity);
-        Vector3 shootDir = 
-        bulletTransform.GetComponent<Bullet>().Setup();
+        Transform bulletTransform = Instantiate(timeBulletPrefab, timeBulletSpawnPosition.transform.position, timeBulletSpawnPosition.transform.rotation);
+        //bulletTransform.GetComponent<Bullet>().Setup();
         TriggerTimeAttackCooling();
     }
     void Attack()
@@ -130,14 +134,18 @@ public class PlayerCombat : MonoBehaviour
     void Cooldown()
     {
         attackCooldown -= Time.deltaTime;
-        timeAttackCooldown -= Time.deltaTime;
+        
 
         if (attackCooldown <= 0 && cooling)
         {
             cooling = false;
             attackCooldown = intAttackCooldown;
         }
+    }
 
+    void TimeAttackCooldown()
+    {
+        timeAttackCooldown -= Time.deltaTime;
         if (timeAttackCooldown <= 0 && timeAttackCooling)
         {
             timeAttackCooling = false;
