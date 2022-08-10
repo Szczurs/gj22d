@@ -507,9 +507,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
-  maxTimeValue: 100
+  maxTimeValue: 200
   timeValue: 0
-  defaultTimeValue: 50
+  defaultTimeValue: 100
   dead: 0
 --- !u!114 &1299823754
 MonoBehaviour:
@@ -529,6 +529,7 @@ MonoBehaviour:
   dashLength: 0.2
   dashCooldown: 1
   dashCounter: 0
+  playerHealth: {fileID: 1299823753}
 --- !u!114 &1299823755
 MonoBehaviour:
   m_ObjectHideFlags: 0

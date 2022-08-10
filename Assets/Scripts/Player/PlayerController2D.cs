@@ -19,6 +19,10 @@ public class PlayerController2D : MonoBehaviour
     public float dashCounter;
     private float dashCoolCounter;
 
+    [SerializeField]
+    private PlayerHealth playerHealth;
+
+    private float timeValueRatio;
 
 
 
@@ -31,13 +35,14 @@ public class PlayerController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeValueRatio = (float)playerHealth.timeValue / 100f;
         //input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
         movement.Normalize();
 
-        rb.velocity = movement * activeMoveSpeed;
+        rb.velocity = movement * activeMoveSpeed * timeValueRatio;
 
 
         if (Input.GetKeyDown(KeyCode.Space))
