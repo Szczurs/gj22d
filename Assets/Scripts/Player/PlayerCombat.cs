@@ -27,11 +27,18 @@ public class PlayerCombat : MonoBehaviour
 
     bool timeAttackCooling;
 
+    [SerializeField]
+    private Transform timeBulletPrefab;
+
+    [SerializeField]
+    private GameObject timeBulletSpawnPosition;
+
     private float intAttackCooldown;
     private float intTimeAttackCooldown;
 
     [SerializeField]
     private PlayerHealth playerHealth;
+
 
 
 
@@ -69,6 +76,7 @@ public class PlayerCombat : MonoBehaviour
         //Play an attack animation
         //animator.SetTrigger("Attack");
         //Detect enemies in range of attack
+        /*
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         //Damage them 
 
@@ -79,6 +87,10 @@ public class PlayerCombat : MonoBehaviour
             playerHealth.addTime(damage);
             TriggerTimeAttackCooling();
         }
+        */
+        Transform bulletTransform = Instantiate(timeBulletPrefab, timeBulletSpawnPosition.transform.position, Quaternion.identity);
+        bulletTransform.GetComponent<Bullet>().Setup();
+        TriggerTimeAttackCooling();
     }
     void Attack()
     {

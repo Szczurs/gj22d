@@ -569,6 +569,9 @@ MonoBehaviour:
   timeDamage: 10
   attackCooldown: 0.5
   timeAttackCooldown: 2
+  timeBulletPrefab: {fileID: 6341638845221167588, guid: c5afa6a033713824496d36513befc579,
+    type: 3}
+  timeBulletSpawnPosition: {fileID: 1299823748}
   playerHealth: {fileID: 1299823753}
 --- !u!1 &1437220228
 GameObject:
