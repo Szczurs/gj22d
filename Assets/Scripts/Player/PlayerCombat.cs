@@ -17,11 +17,21 @@ public class PlayerCombat : MonoBehaviour
 
     public int damage = 10;
 
+    public int timeDamage = 10;
+
     public float attackCooldown = 2;
+
+    public float timeAttackCooldown = 2;
 
     bool cooling;
 
+    bool timeAttackCooling;
+
     private float intAttackCooldown;
+    private float intTimeAttackCooldown;
+
+    [SerializeField]
+    private PlayerHealth playerHealth;
 
 
 
@@ -29,6 +39,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     {
         intAttackCooldown = attackCooldown;
+        intTimeAttackCooldown = timeAttackCooldown;
     }
 
     // Update is called once per frame
@@ -44,12 +55,31 @@ public class PlayerCombat : MonoBehaviour
         {
             Attack();
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TimeAttack();
+        }
         else if (cooling)
         {
             Cooldown();
         }
     }
+    void TimeAttack()
+    {
+        //Play an attack animation
+        //animator.SetTrigger("Attack");
+        //Detect enemies in range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        //Damage them 
 
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("We hit time " + enemy.name);
+            enemy.GetComponent<EnemyHealth>().getTimeDamage(damage);
+            playerHealth.addTime(damage);
+            TriggerTimeAttackCooling();
+        }
+    }
     void Attack()
     {
         //Play an attack animation
@@ -79,14 +109,26 @@ public class PlayerCombat : MonoBehaviour
         cooling = true;
     }
 
+    void TriggerTimeAttackCooling()
+    {
+        timeAttackCooling = true;
+    }
+
     void Cooldown()
     {
         attackCooldown -= Time.deltaTime;
+        timeAttackCooldown -= Time.deltaTime;
 
-        if(attackCooldown <= 0 && cooling)
+        if (attackCooldown <= 0 && cooling)
         {
             cooling = false;
             attackCooldown = intAttackCooldown;
+        }
+
+        if (timeAttackCooldown <= 0 && timeAttackCooling)
+        {
+            timeAttackCooling = false;
+            timeAttackCooldown = intTimeAttackCooldown;
         }
     }
 

@@ -8,12 +8,19 @@ public class PlayerHealth : MonoBehaviour
 
     public int health;
 
+    public int maxTimeValue = 100;
+
+    public int timeValue;
+
+    public int defaultTimeValue = 50;
+
     public bool dead = false;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        timeValue = defaultTimeValue;
     }
 
     // Update is called once per frame
@@ -39,5 +46,19 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    
+    public void addTime(int time)
+    {
+        timeValue = timeValue - time;
+        if ( timeValue <= 0)
+        {
+            //kill player 
+            dead = true;
+        }
+        if(timeValue >= maxTimeValue)
+        {
+            maxTimeValue = timeValue;
+        }
+    }
+
+
 }
