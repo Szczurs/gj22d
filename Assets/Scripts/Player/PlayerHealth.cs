@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void addTime(int time)
     {
-        timeValue = timeValue - time;
+        timeValue = timeValue + time;
         if ( timeValue <= 0)
         {
             //kill player 
