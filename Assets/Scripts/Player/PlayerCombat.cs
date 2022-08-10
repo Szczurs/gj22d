@@ -89,6 +89,7 @@ public class PlayerCombat : MonoBehaviour
         }
         */
         Transform bulletTransform = Instantiate(timeBulletPrefab, timeBulletSpawnPosition.transform.position, Quaternion.identity);
+        Vector3 shootDir = 
         bulletTransform.GetComponent<Bullet>().Setup();
         TriggerTimeAttackCooling();
     }
