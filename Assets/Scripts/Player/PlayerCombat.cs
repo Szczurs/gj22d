@@ -33,6 +33,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     private Transform timeBulletSpawnPosition;
 
+
     private float intAttackCooldown;
     private float intTimeAttackCooldown;
 
@@ -61,6 +62,7 @@ public class PlayerCombat : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.G))
         {
             Attack();
+            
         }
         if (Input.GetKey(KeyCode.F) && timeAttackCooling == false)
         {
@@ -102,6 +104,7 @@ public class PlayerCombat : MonoBehaviour
         //Play an attack animation
         //animator.SetTrigger("Attack");
         //Detect enemies in range of attack
+        animator.SetBool("Attacking", true);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,attackRange,enemyLayers);
         //Damage them 
 
@@ -109,8 +112,9 @@ public class PlayerCombat : MonoBehaviour
         {
             Debug.Log("We hit " + enemy.name);
             enemy.GetComponent<EnemyHealth>().getDamage(damage);
-            TriggerCooling();
+            
         }
+        TriggerCooling();
     }
 
     void OnDrawGizmosSelected() 
@@ -123,6 +127,7 @@ public class PlayerCombat : MonoBehaviour
 
     void TriggerCooling()
     {
+        
         cooling = true;
     }
 
@@ -140,6 +145,7 @@ public class PlayerCombat : MonoBehaviour
         {
             cooling = false;
             attackCooldown = intAttackCooldown;
+            //animator.SetBool("Attacking", false);
         }
     }
 

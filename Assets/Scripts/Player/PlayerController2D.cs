@@ -8,7 +8,7 @@ public class PlayerController2D : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    Vector2 movement;
+    public Vector2 movement;
 
     private float activeMoveSpeed;
     public float dashSpeed;
@@ -21,6 +21,9 @@ public class PlayerController2D : MonoBehaviour
 
     [SerializeField]
     private PlayerHealth playerHealth;
+
+    [SerializeField]
+    private Animator animator;
 
     private float timeValueRatio;
 
@@ -42,7 +45,14 @@ public class PlayerController2D : MonoBehaviour
 
         movement.Normalize();
 
+        //var velocity = Vector3.forward * Time.deltaTime * Input.GetAxis("Vertical") * moveSpeed;
+
         rb.velocity = movement * activeMoveSpeed * timeValueRatio;
+        
+     
+        animator.SetFloat("Speed", Mathf.Abs(rb.velocity.magnitude));
+    
+      
 
 
         if (Input.GetKeyDown(KeyCode.Space))

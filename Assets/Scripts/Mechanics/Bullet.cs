@@ -57,9 +57,10 @@ public class Bullet : MonoBehaviour
         }
         
     }
-    private void OnCollisionEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.tag == "Obstacle")
+        if (other.gameObject.tag == "Obstacle" ||
+            other.gameObject.tag == "Enemy")
         {
             DestroySelf();
         }
